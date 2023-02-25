@@ -197,31 +197,29 @@ Tab:AddTextbox({
 	end	  
 })
 
-local N=game:GetService("VirtualInputManager")
+
 
 local Section = Tab:AddSection({
 	Name = "Maxland dupe auto"
 })
 
+local N=game:GetService("VirtualInputManager")
+
+
+
+
 Tab:AddButton({
-	Name = "Start auto maxland dupe",
+	Name = "Maxland dupe",
 	Callback = function()
-        Log("Slot loading...", 255,255,255, tostring(gFont))
-N:SendKeyEvent(true,"Q",false,game)
-wait(0.1) -- free land
-N:SendKeyEvent(true,"T",false,game)
-wait(0.1) -- loads the base
-N:SendKeyEvent(true,"P",false,game) -- kicks from game
-Loadslot()
+        print("Loading slot")
+        N:SendKeyEvent(true,"Q",false,game)
+        wait(0.1) -- free land
+        N:SendKeyEvent(true,"T",false,game)
+        wait(0.1) -- loads the base
+        N:SendKeyEvent(true,"P",false,game) -- kicks from game
+        LoadSlot()
   	end    
 })
-
-
-
-
-
-
-
 
 
 
