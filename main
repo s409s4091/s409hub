@@ -123,26 +123,6 @@ local Section = Tab:AddSection({
 
 
 
-loadstring([[
-function FreeLand()
-    for a,b in pairs(workspace.Properties:GetChildren()) do 
-        if b:FindFirstChild("Owner") and b:FindFirstChild("OriginSquare") and b.Owner.Value == nil then 
-       wait(1)
-       game.ReplicatedStorage.PropertyPurchasing.ClientPurchasedProperty:FireServer(b, b.OriginSquare.OriginCFrame.Value.p + Vector3.new(0,3,0))
-      for i,v in pairs(game.Workspace.Properties:GetChildren()) do
-       if v.Owner.Value == game.Players.LocalPlayer then
-      wait(0.1)
-       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.OriginSquare.CFrame + Vector3.new(0,10,0)
-      wait(0.1)
-       game.Players.LocalPlayer.Character.Jump = false
-      break
-      end
-      end
-      end
-      end
-      end
-]])();
-
 
 function LoadSlot()
     local LoadSlot = game.ReplicatedStorage.LoadSaveRequests.ClientMayLoad:InvokeServer(player)
@@ -180,7 +160,7 @@ Tab:AddSlider({
 
 
 Tab:AddTextbox({
-	Name = "Time to tp to middle",
+	Name = "Time to tp to middle removing 3 secs",
 	Default = "",
 	TextDisappear = false,
 	Callback = function(new)
@@ -189,7 +169,7 @@ Tab:AddTextbox({
 })
 
 Tab:AddTextbox({
-	Name = "How much time you would like to take off",
+	Name = "How much time you would like to take off NOT WORKING",
 	Default = "",
 	TextDisappear = false,
 	Callback = function(new)
@@ -355,6 +335,50 @@ if key == bind then
         end
     end
 end
+
+
+wait(3)
+
+local c = game.Workspace.Properties
+    local n = print('working')
+    for i, v in pairs(c:GetChildren()) do
+    if v:FindFirstChild("Owner") and v.Owner.Value == game.Players.LocalPlayer then
+    holebase = v; 
+    maxland = v.OriginSquare;
+    end;
+    end;
+    for i,v in pairs(game.Workspace.Properties:GetChildren()) do
+    local n
+    end;
+    function Expandbase(point)
+    local Event = game:GetService("ReplicatedStorage").PropertyPurchasing.ClientExpandedProperty
+    Event:FireServer(holebase, point)
+    end;
+    spos = maxland.Position
+    Expandbase(CFrame.new(spos.X + 40, spos.Y, spos.Z))
+    Expandbase(CFrame.new(spos.X - 40, spos.Y, spos.Z))
+    Expandbase(CFrame.new(spos.X, spos.Y, spos.Z + 40))
+    Expandbase(CFrame.new(spos.X, spos.Y, spos.Z - 40))
+    Expandbase(CFrame.new(spos.X + 40, spos.Y, spos.Z + 40))
+    Expandbase(CFrame.new(spos.X + 40, spos.Y, spos.Z - 40))
+    Expandbase(CFrame.new(spos.X - 40, spos.Y, spos.Z + 40))
+    Expandbase(CFrame.new(spos.X - 40, spos.Y, spos.Z - 40))
+    Expandbase(CFrame.new(spos.X + 80, spos.Y, spos.Z))
+    Expandbase(CFrame.new(spos.X - 80, spos.Y, spos.Z))
+    Expandbase(CFrame.new(spos.X, spos.Y, spos.Z + 80))
+    Expandbase(CFrame.new(spos.X, spos.Y, spos.Z - 80))
+    Expandbase(CFrame.new(spos.X + 80, spos.Y, spos.Z + 80))
+    Expandbase(CFrame.new(spos.X + 80, spos.Y, spos.Z - 80))
+    Expandbase(CFrame.new(spos.X - 80, spos.Y, spos.Z + 80))
+    Expandbase(CFrame.new(spos.X - 80, spos.Y, spos.Z - 80))
+    Expandbase(CFrame.new(spos.X + 40, spos.Y, spos.Z + 80))
+    Expandbase(CFrame.new(spos.X - 40, spos.Y, spos.Z + 80))
+    Expandbase(CFrame.new(spos.X + 80, spos.Y, spos.Z + 40))
+    Expandbase(CFrame.new(spos.X + 80, spos.Y, spos.Z - 40))
+    Expandbase(CFrame.new(spos.X - 80, spos.Y, spos.Z + 40))
+    Expandbase(CFrame.new(spos.X - 80, spos.Y, spos.Z - 40))
+    Expandbase(CFrame.new(spos.X + 40, spos.Y, spos.Z - 80))
+    Expandbase(CFrame.new(spos.X - 40, spos.Y, spos.Z - 80))
 end)
 
 
@@ -373,6 +397,7 @@ if key == bind then
     repeat wait()until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible;
     wait(1)
     wait(2)
+    wait(3)
     task.wait(timetotp - 2)
     loadstring(game:GetObjects("rbxassetid://2662507900")[1].Source)()
 end
@@ -392,6 +417,7 @@ mouse.KeyDown:connect(function(key)
 if key == bind then
     repeat wait()until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible;
     wait(0.3)
+    wait(3)
     scr.scrollSelection(-1);
     wait(0.1)
     scr.selectionMade();
