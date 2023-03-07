@@ -1,7 +1,15 @@
 local scriptver = "BETA"
 
+local workinggamever = "Place Version: 2257"
+
+local gamever = game.CoreGui.RobloxGui.SettingsShield.SettingsShield.VersionContainer.PlaceVersionLabel.text
+
+
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "S409HUB ┃ ".. scriptver, HidePremium = true, SaveConfig = true, ConfigFolder = "KYS1", IntroText = "KYS2", IntroIcon = "https://i.e-z.host/nbo558hv.png"})
+
+
+
 
 local Tab = Window:MakeTab({
     Name = "Player",
@@ -287,7 +295,7 @@ Tab:AddButton({
             Name = "S409HUB",
             Content = "Slot saved.",
             Image = "rbxassetid://12576176007",
-            Time = 5
+            Time = 1
         })
         until result
         getgenv().block_save = true
@@ -521,3 +529,22 @@ wait(0.3)
 scr.selectionMade();                       
 end
 end)
+
+
+wait(5)
+
+if workinggamever == gamever then
+    OrionLib:MakeNotification({
+        Name = "S409HUB",
+        Content = "Supported game version",
+        Image = "rbxassetid://12576176007",
+        Time = 5
+    })
+else
+    OrionLib:MakeNotification({
+        Name = "S409HUB",
+        Content = "Game version may not be working please wait for an update before proceeding",
+        Image = "rbxassetid://12576176007",
+        Time = 10
+    })
+end
