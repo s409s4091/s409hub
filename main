@@ -1,6 +1,6 @@
 local scriptver = "BETA"
 
-local workinggamever = "Place Version: 2257"
+local workinggamever = "Place Version: 2258"
 
 local gamever = game.CoreGui.RobloxGui.SettingsShield.SettingsShield.VersionContainer.PlaceVersionLabel.text
 
